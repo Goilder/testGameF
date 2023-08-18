@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit {
   setIp(value: string) {
     localStorage.setItem("ip", value);
     this.path = value;
+    this.fetchRooms();
     // this.refresh();
   }
   setNick(value: string) {
@@ -96,6 +97,7 @@ export class HomeComponent implements OnInit {
       // this.dataTable(d);
       this.roomIn(`server_${this.nickname}`);
       console.log(d);
+      this.fetchRooms();
     });
   }
   delRoom(room: string) {
