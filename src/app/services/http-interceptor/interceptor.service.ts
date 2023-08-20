@@ -17,9 +17,11 @@ export class InterceptorService implements HttpInterceptor {
       tap(
         (ev) => {},
         (err) => {
-          console.log(err);
           if (err.status == 500) {
             this.er.errorsIn$.next(this.er.getCount() + ".  " + err.error.detail)
+          }
+          else {
+            console.log(err);
           }
         }
       )
